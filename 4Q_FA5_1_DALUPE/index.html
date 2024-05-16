@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA 5 - NO. 1</title>
+
+    <script>
+        function getNumberInput() {
+            let num;
+            do{
+                num = prompt("Enter a number:");
+            }while (isNaN(num) || num === "");
+            return parseInt(num);
+        }   
+
+        function printShape(){
+            const num = getNumberInput();
+            let shape = `Number inputted: ${num}\n`;
+            if(num % 2 === 0){
+                for(let x = num; x>0; x--){
+                    shape += `${x} `.repeat(x) + "\n";
+                }
+            }
+            else{
+                for(let x = num; x>0; x--){
+                    shape += `${x} `.repeat(num) + "\n";
+                }
+            }
+
+            document.getElementById("output").innerText = shape;
+        }
+    </script>
+
+</head>
+<body>
+    <h1>FA 5 - NO. 1</h1>
+
+    <button onclick="printShape()">Click Here!</button>
+    <pre id="output"></pre>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA 5 - NO. 2</title>
+
+    <script>
+        let contacts = [];
+
+        function addAcc(){
+            const acc = document.getElementById('accName');
+            const name = acc.value.trim();
+            if (name) {
+                if (contacts.length >= 7) {
+                    contacts.shift();
+                }
+                contacts.push(name);
+                acc.value = '';
+                updateCL();
+            }
+        }
+
+        function removeAcc(){
+            contacts.pop();
+            updateCL();
+        }
+
+        function updateCL() {
+            const CL = document.getElementById('contactList');
+            CL.innerHTML = "";
+    
+            contacts.forEach(contact => {
+                const list = document.createElement('item');
+                list.textContent = contact;
+                CL.appendChild(list);
+            });
+        }       
+
+    </script>
+
+    <style>
+        item{
+            margin: 1vw;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>FA 5 - NO. 2</h1>
+
+    
+    <div class="button">
+        <h3>Contact List</h3>
+        <input type="text" id="accName" placeholder="Enter Name">
+        <button onclick="addAcc()">Add</button>
+        <button onclick="removeAcc()">Remove</button>
+        <ul id="contactList"></ul>
+    </div>
+    
+</body>
+</html>
